@@ -1,0 +1,14 @@
+@model User
+
+<h1>Account Information</h1>
+
+<div class="card">
+    <div class="card-header">
+    Username: @Model.Username
+    </div>
+    <ul class="list-group list-group-flush">
+    <li class="list-group-item">Email: @Model.Email</li>
+    <li class="list-group-item">Coupons Posted: @Model.Coupons.Count</li>
+    <li class="list-group-item"># of coupons used: @Model.AllAssociations.Count</li>
+    </ul>
+</div>

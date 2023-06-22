@@ -1,0 +1,29 @@
+@model LoginUser
+
+<form asp-controller="User" asp-action="Login" method="POST" class="card-body bg-dark text-light rounded">
+
+    <h2 class="text-primary text-decoration-underline fw-bold fs-1">Login</h2>
+
+    <div class="form-group card-body">
+        <label asp-for="LoginEmail">Email:</label>
+        <span asp-validation-for="LoginEmail" class="text-danger font-weight-bold"></span>
+        <input asp-for="LoginEmail" class="form-control"
+                placeholder="please enter your email...">
+    </div>
+
+    <div class="form-group card-body">
+        <label asp-for="LoginPassword">Password:</label>
+        <span asp-validation-for="LoginPassword" class="text-danger font-weight-bold"></span>
+        <input asp-for="LoginPassword" class="form-control"
+            placeholder="please enter your password...">
+    </div>
+
+    <br>
+
+    <div class="container">
+        <div class="btn border-success">
+            <button class="btn btn-outline-success shadow btn-lg cards">Login</button>
+        </div>
+    </div>
+
+</form>

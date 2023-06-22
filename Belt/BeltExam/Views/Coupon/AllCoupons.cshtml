@@ -1,0 +1,41 @@
+@model List<Coupon>
+
+<h2 class="text-center">Welcome @Context.Session.GetString("Username")</h2>
+
+<hr>
+
+@foreach (Coupon coupon in Model)
+{
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">@coupon.CouponCode</h5>
+                <h6 class="card-subtitle mb-2 text-muted">@coupon.Website</h6>
+                <p class="card-text">@coupon.Description</p>
+
+                @{
+                    if (Context.Session.GetInt32("UUID") == coupon?.UserId)
+                    {
+                        <h6 class="card-subtitle mb-2 text-muted">You posted this</h6>
+                    } else
+                    {
+                        if (coupon.AllAssociations.Any(asso => asso.UserId == Context.Session.GetInt32("UUID")))
+                        {
+                            <h6 class="card-subtitle mb-2 text-muted">You used this</h6>
+                        } else 
+                        {
+                            
+                            <form asp-controller="Coupon" asp-action="UseCoupon" asp-route-id="@coupon.CouponId" method="POST">
+                                <input type="submit" value="Use this coupon">
+                            </form>
+                        }
+                    }
+                }
+
+                <h6 class="card-subtitle mb-2 text-muted">Posted by: @coupon.User?.Username</h6>
+            </div>
+        </div>
+        <br>
+        <br>
+
+}

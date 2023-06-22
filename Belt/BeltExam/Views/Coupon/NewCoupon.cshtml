@@ -1,0 +1,32 @@
+@model Coupon
+
+<form asp-controller="Coupon" asp-action="CreateCoupon" method="POST" class="card-body bg-dark text-light rounded">
+
+    <h2 class="text-primary text-decoration-underline fw-bold fs-1">Add a coupon</h2>
+
+    <div class="form-group card-body">
+        <label asp-for="CouponCode">Coupon Code</label>
+        <span asp-validation-for="CouponCode" class="text-danger font-weight-bold"></span>
+        <input asp-for="CouponCode" class="form-control"
+                placeholder="please enter your coupon code...">
+    </div>
+
+    <div class="form-group card-body">
+        <label asp-for="Website">Website applicable on</label>
+        <span asp-validation-for="Website" class="text-danger font-weight-bold"></span>
+        <input asp-for="Website" class="form-control"
+            placeholder="please enter website name...">
+    </div>
+
+    <div class="form-group card-body">
+        <label asp-for="Description">Description</label>
+        <span asp-validation-for="Description" class="text-danger font-weight-bold"></span>
+        <input asp-for="Description" class="form-control"
+            placeholder="please enter your description...">
+    </div>
+
+    <br>
+
+<input type="submit" value="Add coupon">
+
+</form>
